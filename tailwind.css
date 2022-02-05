@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+#weather-container>h3 {
+    font-family: 'Lobster', cursive
+}
+
+#mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 600px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none!important;
+    height: 500px;
+    width: 600px;
+}
+
+#sevenDay {
+    display: none;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 100px;
+    grid-gap: 10px;
+}
+
+#sevenDay>div>h3 {
+    font-family: 'Syne Tactile', cursive;
+}

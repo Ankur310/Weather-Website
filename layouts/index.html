@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info🌅🌇</title>
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- / -->
+
+
+    <script src='https:/api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https:/api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+    <!--  -->
+    <link rel="stylesheet" href="../tailwind.css">
+    <link rel="preconnect" href="https:/fonts.googleapis.com">
+
+    <link href="https:/fonts.googleapis.com/css2?family=Supermercado+One&display=swap" rel="stylesheet">
+</head>
+
+<!-- background="https://webartdevelopers.com/blog/wp-content/uploads/2019/01/css-animated-weather-icons.gif" -->
+<!-- rgb(1,197,255) -->
+
+<body background="https://webartdevelopers.com/blog/wp-content/uploads/2019/01/css-animated-weather-icons.gif" class="m-0 p-0 ">
+
+
+    <div class="w-full p-2 h-14 flex justify-between">
+        <h3 class="font-serif text-3xl self-center ml-6 font-semibold text-white " id="Cnter">Weather Info🌅🌇</h3>
+        <div class="flex align-middle ml-16">
+            <input type="text" placeholder="City/Zip Code" id="city" class="p-2 self-center rounded-2xl mr-3 border-slate-400 active:bg-slate-300 w-64 focus:outline-slate-400">
+            <button class="mr-16 bg-slate-500 hover:bg-slate-300 rounded-3xl h-10 w-20  self-center " id="search">Search</button>
+        </div>
+
+    </div>
+
+    <button id="getWeek" class="w-auto p-2 ml-20 mt-9 rounded-2xl bg-orange-200 hover:bg-slate-400">Get Week Report</button>
+    <div class="w-full flex justify-between">
+        <!--  -->
+
+        <!-- ADDING MAP -->
+        <div id="mapouter" class="mt-5 ml-20 shadow-lg shadow-orange-300">
+            <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https:/maps.google.com/maps?q=London&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" class="rounded-3xl"></iframe><a href="https:/putlocker-is.org">putlocker</a><br>
+                <a href="https:/www.embedgooglemap.net"></a>
+            </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <!--  -->
+
+        <div id="weather-container" class="w-[350px] h-[400px]  mt-32 mr-9 rounded-3xl bg-transparent shadow-lg shadow-emerald-300 flex  flex-col justify-evenly ">
+
+
+            <h3 class=" text-2xl ml-4 text-white" id="temperature">Temperature:</h3>
+            <h3 class=" text-xl ml-4 text-white" id="temp--maxmin">Temperature:</h3>
+            <h3 class=" text-2xl ml-4 text-white" id="humidity">Humidity:</h3>
+            <h3 class=" text-2xl ml-4 text-white" id="air-speed">Air-Speed:</h3>
+            <h3 class=" text-2xl ml-4 text-white" id="pressure">Presure:</h3>
+
+            <h3 class=" text-2xl ml-4 text-white" id="sunrise">Sunrise:</h3>
+            <h3 class=" text-2xl ml-4 text-white" id="sunset">Sunset:</h3>
+
+
+        </div>
+
+
+    </div>
+
+    <div id="sevenDay" class="flex bg-gray-500 h-80 mt-9  shadow-lg shadow-cyan-300  rounded-md w-full m-auto">
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 self-center -mb-56 justify-evenly">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Monday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t1">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h1">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp1--maxmin1">Temp(max/min):</h3>
+        </div>
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 -mb-56 self-center justify-evenly ">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Tuesday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t2">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h2">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp2--maxmin2">Temp(max/min):</h3>
+        </div>
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 -mb-56 self-center justify-evenly">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Wednesday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t3">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h3">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp3--maxmin3">Temp(max/min):</h3>
+        </div>
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 -mb-56 self-center justify-evenly">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Thursday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t4">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h4">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp4--maxmin4">Temp(max/min):</h3>
+        </div>
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 -mb-56 self-center justify-evenly">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Friday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t5">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h5">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp5--maxmin5">Temp(max/min):</h3>
+        </div>
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 -mb-56 self-center justify-evenly">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Saturday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t6">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h6">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp6--maxmin6">Temp(max/min):</h3>
+        </div>
+        <div class="flex flex-col shadow-lg shadow-orange-300 w-full h-56 -mb-56 self-center justify-evenly">
+            <h3 class=" text-xl ml-2 text-white self-center" id="day">Sunday</h3>
+            <h3 class=" text-md ml-2 text-white" id="t7">Temperature:</h3>
+            <h3 class=" text-md ml-2 text-white" id="h7">Humidity:</h3>
+            <h3 class=" text-md ml-2 text-white" id="temp7--maxmin7">Temp(max/min):</h3>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+<script src="index.js"></script>
